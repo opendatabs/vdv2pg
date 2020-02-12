@@ -54,7 +54,7 @@ class Parser:
                 dct[k] = None
 
     def parse(self, conn, filename, encoding="Windows-1252"):
-        with open(filename, encoding=encoding) as f:
+        with open(filename, encoding=encoding, errors='ignore') as f:
             table = self.create_table(filename, f)  # seeks to end of header
             column_names = table.columns.keys()
             logger.debug(
