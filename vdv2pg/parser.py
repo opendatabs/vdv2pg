@@ -53,8 +53,8 @@ class Parser:
             if isinstance(v, str) and v.strip() == "":
                 dct[k] = None
 
-    def parse(self, conn, filename, encoding="Windows-1252"):
-        with open(filename, encoding=encoding, errors='ignore') as f:
+    def parse(self, conn, filename, encoding="Latin-1"):
+        with open(filename, encoding=encoding) as f:
             table = self.create_table(filename, f)  # seeks to end of header
             column_names = table.columns.keys()
             logger.debug(
